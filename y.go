@@ -14,14 +14,20 @@ func check(e error) {
 	}
 }
 
+func JsonToYaml(bytes []byte) string {
+	var j map[string]interface{}
+	json.Unmarshal(bytes, &j)
+
+	y, e := yaml.Marshal(&j)
+	check(e)
+
+	return string(y)
+}
+
 func main() {
-	bytes, err := ioutil.ReadAll(os.Stdin)
-	check(err)
+	bytes, e := ioutil.ReadAll(os.Stdin)
+	check(e)
 
-	var parsedJson map[string]interface{}
-	json.Unmarshal([]byte(string(bytes)), &parsedJson)
-	yamlOutput, err := yaml.Marshal(&parsedJson)
-	check(err)
-
-	fmt.Println(string(yamlOutput))
+	s := JsonToYaml(bytes)
+	fmt.Println(s)
 }
