@@ -19,6 +19,7 @@ func TestJsonToYaml(t *testing.T) {
 
 	jb := []byte(`[{"birb": 1}]`)
 	yb := "- birb: 1\n"
+
 	if JsonToYaml(jb) != yb {
 		t.Errorf("Failed translating array of JSON to YAML")
 	}
