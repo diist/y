@@ -1,6 +1,6 @@
 # y
 
-Turns JSON to YAML.
+Turns JSON into YAML.
 
 Usage:
 ```bash
