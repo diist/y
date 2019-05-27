@@ -5,15 +5,21 @@ import (
 )
 
 func TestJsonToYaml(t *testing.T) {
-	j := []byte(`{ "x": {"blah": 2, "a": [{ "hello": "bonjour"}, 2, 3] }}`)
-	y := `x:
+	ja := []byte(`{ "x": {"blah": 2, "a": [{ "hello": "bonjour"}, 2, 3] }}`)
+	ya := `x:
   a:
   - hello: bonjour
   - 2
   - 3
   blah: 2
 `
-	if JsonToYaml(j) != y {
-		t.Errorf("Failed translating JSON to YAML")
+	if JsonToYaml(ja) != ya {
+		t.Errorf("Failed translating JSON object to YAML")
+	}
+
+	jb := []byte(`[{"birb": 1}]`)
+	yb := "- birb: 1\n"
+	if JsonToYaml(jb) != yb {
+		t.Errorf("Failed translating array of JSON to YAML")
 	}
 }

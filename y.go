@@ -15,7 +15,7 @@ func check(e error) {
 }
 
 func JsonToYaml(bytes []byte) string {
-	var j map[string]interface{}
+	var j interface{}
 	json.Unmarshal(bytes, &j)
 
 	y, e := yaml.Marshal(&j)
