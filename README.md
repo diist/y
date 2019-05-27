@@ -2,7 +2,7 @@
 
 Turns JSON into YAML.
 
-Usage:
+**Usage**:
 ```bash
 $ echo '{"birb": [{"blah": "red"}, {"yellow": "fever"}]}' | y
 birb:
