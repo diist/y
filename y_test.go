@@ -6,7 +6,8 @@ import (
 
 func TestJsonToYaml(t *testing.T) {
 	ja := []byte(`{ "x": {"blah": 2, "a": [{ "hello": "bonjour"}, 2, 3] }}`)
-	ya := `x:
+	ya := `---
+x:
   a:
   - hello: bonjour
   - 2
@@ -18,7 +19,7 @@ func TestJsonToYaml(t *testing.T) {
 	}
 
 	jb := []byte(`[{"birb": 1}]`)
-	yb := "- birb: 1\n"
+	yb := "---\n- birb: 1\n"
 
 	if JsonToYaml(jb) != yb {
 		t.Errorf("Failed translating array of JSON to YAML")

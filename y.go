@@ -21,7 +21,7 @@ func JsonToYaml(bytes []byte) string {
 	y, e := yaml.Marshal(&j)
 	check(e)
 
-	return string(y)
+	return "---\n" + string(y)
 }
 
 func main() {
